@@ -1,0 +1,118 @@
+.container {
+	text-align: center;
+	max-width: 950px;
+	margin: 0 auto;
+}
+/* Style the calculator buttons */
+.calculator-button {
+	background-color: #7fafaa;
+  color: rgb(3, 0, 100);
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+.display {
+	background-color: #f0f0f0;
+	border: 1px solid #ccc;
+	padding: 10px;
+	margin-bottom: 10px;
+	font-size: 24px;
+	text-align: right;
+	min-height: 50px;
+}
+.displayAnswer {
+	text-decoration-color: rgb(126, 0, 0);
+	background-color: #4e9f4e;
+	border: 1px solid #ccc;
+	padding: 10px;
+	margin-bottom: 10px;
+	font-size: 24px;
+	text-align: right;
+	min-height: 50px;
+}
+/* Add styles for the operator buttons */
+.calculator-operator {
+  background-color: #b79a23;
+  color: rgb(3, 0, 100);
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+ 
+/* Add styles for the equal button */
+.calculator-equal {
+  background-color: #4e9f4e;
+  color: rgb(3, 0, 100);
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+.calculator-cancel {
+  background-color: #9f4e4e;
+  color: rgb(3, 0, 100);
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+.operator-buttons {
+	display: flex;
+	flex-direction: row;
+}
+
+.button-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+.number-buttons {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	width: 100%;
+}
+.button-pressed {
+	background-color: lightblue;
+	color: white;
+	border: 1px solid darkblue;
+}
+
+.button:hover {
+	background-color: hsl(var(--accent-color-hue), var(--accent-color-saturation), 87%);
+}
+
+.button:disabled {
+	background-color: var(--disabled-color);
+}
+
+.steps-item-button {
+	cursor: pointer;
+	border-radius: 50%;
+	padding: 0.75rem 1rem;
+	background: #cccccc;
+	border: none;
+	margin-bottom: 0.25rem;
+}
+
+.steps-item.active .steps-item-button,
+.steps-item.done .steps-item-button {
+	background: hsl(var(--accent-color-hue), var(--accent-color-saturation), 92%);
+}
+
+.steps-item.active,
+.steps-item.active .steps-item-button {
+	font-weight: bold;
+}
