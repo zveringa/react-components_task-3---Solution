@@ -65,7 +65,7 @@
 }
 .displayAnswer {
 	width: 50%;
-	color: rgb(4, 67, 16);
+	color: rgb(9, 172, 39);
 	/* background-color: #4e9f4e; */
 	border: 1px solid #ccc;
 	padding: 10px;
@@ -98,24 +98,26 @@
 }
 /* Add styles for the equal button */
 .calculator-equal {
-  background-color: #4e9f4e;
+  background-color: hsl(120, 34%, 46%);
   color: rgb(3, 0, 100);
+  width: 110px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  padding: 10px 20px;
-  font-size: 16px;
+  padding: 10px 10px;
+  font-size: 20px;
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
 	list-style-type: none;
 }
-.calculator-cancel {
+.calculator-clear {
   background-color: #9f4e4e;
   color: rgb(3, 0, 100);
 	width: 50px;
+  
   border: 1px solid #ccc;
   border-radius: 5px;
   padding: 10px 10px;
-  font-size: 25px;
+  font-size: 20px;
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
 	list-style-type: none;
