@@ -1,8 +1,8 @@
 .container {
 	text-align: center;
-	max-width: 750px;
-	margin: 0 auto;
-	margin-top: 5px;
+	max-width: 850px ;
+	margin:  auto;
+	margin-top: 15px;
 	margin-left: auto;
 }
 
@@ -26,28 +26,9 @@
   transition: background-color 0.3s, color 0.3s;
 	list-style-type: none;
 	position: center;
-}
+  }
+
 .calculator-button:hover {
-  background-color: #9fdcd5;
-}
-
-.zero-button {
-	background-color: #7fafaa;
-  color: rgb(3, 0, 100);
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s, color 0.3s;
-	list-style-type: none;
-	position: center;
-	width: 105px;
-	height: 48px;
-  grid-column: span 2; /* Make the '0' button span two columns */
-}
-
-.zero-button:hover {
   background-color: #9fdcd5;
 }
 
@@ -66,7 +47,7 @@
 .displayAnswer {
 	width: 50%;
 	color: rgb(9, 172, 39);
-	/* background-color: #4e9f4e; */
+	background-color: #f0f0f0;
 	border: 1px solid #ccc;
 	padding: 10px;
 	margin-bottom: 10px;
@@ -74,6 +55,7 @@
 	text-align: right;
 	min-height: 50px;
 }
+
 /* Add styles for the operator buttons */
 .calculator-operator {
   background-color: #b79a23;
@@ -87,12 +69,7 @@
   transition: background-color 0.3s, color 0.3s;
 	list-style-type: none;
 }
-.calculator-cancel:hover {
-  background-color: #f4511e; 
-}
-.calculator-equal:hover {
-  background-color: #18ce03; 
-}
+
 .calculator-operator:hover {
   background-color: #f6de53;
 }
@@ -109,6 +86,12 @@
   transition: background-color 0.3s, color 0.3s;
 	list-style-type: none;
 }
+
+.calculator-equal:hover {
+  background-color: #18ce03; 
+  }
+
+  /* Add styles for the Clear button */
 .calculator-clear {
   background-color: #9f4e4e;
   color: rgb(3, 0, 100);
@@ -121,6 +104,10 @@
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
 	list-style-type: none;
+}
+
+.calculator-clear:hover {
+  background-color: #f4511e; 
 }
 .operator-buttons {
   margin-top: 10px;
@@ -142,7 +129,9 @@
 .button-shadow {
   box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2); /* Horizontal offset, vertical offset, blur radius, color */
 }
-
+.disabled{
+  background-color: #b4b4b4;
+}
 /* .button:hover {
 	background-color: hsl(var(--accent-color-hue), var(--accent-color-saturation), 87%);
 } */

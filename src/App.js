@@ -12,29 +12,31 @@ export const App = () => {
 	const [operand2, setOperand2] = useState('');
 	const [result, setResult] = useState('');
 	const [disableEquals, setDisableEquals] = useState(false);
-	
+	console.log('Operator state is: ', operator);// operator state check-up
 	
 	const NUMS = ['1','2','3','4','5','6','7','8','9','0','+','-','=','C'];
-			// HandleDigitClick
+			
+				// HandleDigitClick
+
 	const handleDigitClick = (number) => {
-		if(operator === '' && operand1 === '0' ) {
-			setOperand1(number);
-			console.log("Entered number: ", number);
-		} else if(operator === '+' || operator === '-' ) {
-			setOperand2(operand2 + number);
-		console.log("Entered number: ", operand2);
+		let newOperand = '';
 		
+		if(operator === '' && operand1 === '0' ) {
+			setOperand1(newOperand =+ number);
+			setDisableEquals(true);
+			
+		} else if(operator === '+' || operator === '-' ) {
+			setOperand2((newOperand) => (newOperand + number));
+			
 		
 		} else {setOperand1(operand1 + number);
-			console.log("Entered number: ", operand1);
-		}
+			}
 	}
 	
 	const handleAdd = () => {
 		if(operator === '=') {
 			setOperand1(result);
 			setOperand2('');
-			
 		}
 		setOperator('+');
 		setDisableEquals(false);
@@ -42,10 +44,9 @@ export const App = () => {
 	
 	const handleSubtract = () => {
 		if(operator === '=') {
-				setOperand1(result);
-				setOperand2('');
-				
-			}
+			setOperand1(result);
+			setOperand2('');
+		}
 		setOperator('-');
 		setDisableEquals(false);
 	};
@@ -58,20 +59,25 @@ export const App = () => {
 		setDisableEquals(true);
 		console.log("Cleared");
 	};
-	const handleEquals = (number) => {
-		let result= '0';
-			if (operator === '+' && operand1 && operand2) {
-				result = parseInt(operand1) + parseInt(operand2);
-				console.log("Result:", result);
-				setOperand1('0');
-				setOperand2('');
+	
+	const handleEquals = () => {
+		let calculatedResult= '0';
+		
+		if(operator === '+' && operand1 && operand2) {
+				
+				calculatedResult = parseInt(operand1) + parseInt(operand2);
+				setResult(calculatedResult.toString());
 				setOperator('=');
+				setOperand1(calculatedResult.toString());
+				setOperand2('');
+				
 		} else if (operator === '-' && operand1 && operand2) {
-				result = parseInt(operand1) - parseInt(operand2);
-				console.log("Result:", result);
-				setOperand1('0');
-				setOperand2('');
+			calculatedResult = parseInt(operand1) - parseInt(operand2);
+			setResult(calculatedResult.toString());
 				setOperator('=');
+				setOperand1(calculatedResult.toString());
+        		setOperand2('');
+				
 		} else if (operator === '=' && !operand2 ) {
 			console.log('enter the number!'); 
 			setDisableEquals(true);	
@@ -79,26 +85,22 @@ export const App = () => {
 			setOperand2('');
 			setOperator('=');		
 		} else {
-			setOperator('=');
-			setResult(result.toString());
-			// setOperand2('');
+			setResult(operand1);
+        	setOperator('=');
 			}
-		
-	};
+		};
 	
-	
-	return (
+	return ( 
     <div className={styles['container']}>
 
-      							{/* Display */}
+      							{/* DISPLAY */}
 
-      <div className={operator === '=' ? styles['displayAnswer'] : styles['display']}>
+    <div className={operator === '=' ? styles['displayAnswer'] : styles['display']}>
           {operator === '='  ? (result) : (`${operand1} ${operator} ${operand2}`)}
-      </div>
-        <div className={styles['button-container']}>
-
-								{/* Buttons */}
-
+    </div>
+        
+								{/* BUTTONS */}
+	<div className={styles['button-container']}>
           <table className={styles['number-buttons']}>
             <tbody>
               <tr>
@@ -142,7 +144,7 @@ export const App = () => {
 			  <tr>
 			  {NUMS.slice(12, 13).map((number) => (
                   <td key={number} colSpan="2">
-                    <ButtonShadowEqual number={number} onClick={handleEquals} disabled={disableEquals} />
+                    <ButtonShadowEqual number={number} onClick={handleEquals} disabled={disableEquals} style={disableEquals ? { backgroundColor: '#b4b4b4' } : {}}/>
                   </td>
                 ))}
 				{NUMS.slice(13, 14).map((number) => (
